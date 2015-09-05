@@ -4,7 +4,7 @@ class window.Hand extends Backbone.Collection
   initialize: (array, @deck, @isDealer) ->
 
   hit: ->
-    console.log('before' , @deck)
+   #console.log('before' , @deck)
     
     @add(@deck.pop()).last()
     #console.log('after' , @deck)
@@ -14,7 +14,9 @@ class window.Hand extends Backbone.Collection
   , 0
 
   stand: ->
-  console.log(@)
+    @trigger 'stand'
+    console.log 'triggered'
+  
   #trigger end turn event
 
   minScore: -> @reduce (score, card) ->
